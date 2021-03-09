@@ -1,9 +1,12 @@
 import React, { Component } from 'react';
+import Router from './Router';
 
 export default class App extends Component {
   render() {
     return (
-      <div>React simple starter</div>
+      <React.Fragment>
+          <Router></Router>
+      </React.Fragment>
     );
   }
 }
