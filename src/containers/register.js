@@ -23,7 +23,7 @@ const Register = (props) => {
     const handleInputChange = (event) => {
         var name = event.target.name;
         var value = event.target.value;
-        var pattern= ''
+        var pattern = ''
         if (name == "username") {
             pattern = /(.*[a-z]){5}/i;
             if (!pattern.test(value)) {
@@ -69,21 +69,36 @@ const Register = (props) => {
         console.log("Register User", registerUser)
         console.log("Register User Props", props)
         props.regNewUser(registerUser);
+        props.history.push("/productsList");
     }
 
     return (
         <React.Fragment>
             <div>
                 <form>
-                    Username <input type="text" name="username" placeholder="Enter Username" onChange={handleInputChange}></input>
-                    <p style={{ color: 'red' }} ref={usernameRef}></p><br></br>
-            Email Id <input type="email" name="emailId" placeholder="Enter Email Id" onChange={handleInputChange}></input>
-                    <p style={{ color: 'red' }} ref={emailRef}></p><br></br>
-            Password <input type="password" name="password" placeholder="Enter Password" onChange={handleInputChange}></input>
-                    <p style={{ color: 'red' }} ref={passwordRef}></p><br></br>
-            confirm Password <input type="text" name="confirmPassword" placeholder="Confirm Password" onChange={handleInputChange}></input>
-                    <p style={{ color: 'red' }} ref={confirmPasswordRef}></p><br></br>
-                    <button onClick={register}>Register</button>
+                    <div className="container">
+                        <label htmlFor="username"><b>Username</b></label>
+                        <input type="text" placeholder="Username..." name="username" required onMouseOut={handleInputChange} onChange={handleInputChange} />
+                        <p style={{ color: "red" }} ref={usernameRef}></p>
+
+                        <label htmlFor="emailId"><b>Email</b></label>
+                        <input type="text" placeholder="Email..." name="emailId" required onMouseOut={handleInputChange} onChange={handleInputChange} />
+                        <p style={{ color: "red" }} ref={emailRef}></p>
+
+                        <label htmlFor="password"><b>Password</b></label>
+                        <input type="password" placeholder="Password..." name="password" required onMouseOut={handleInputChange} onChange={handleInputChange} />
+                        <p style={{ color: "red" }} ref={passwordRef}></p>
+
+                        <label htmlFor="confirmPassword"><b>Confirm Password</b></label>
+                        <input type="password" placeholder="Confirm Password..." name="confirmPassword" required onMouseOut={handleInputChange} onChange={handleInputChange} />
+                        <p style={{ color: "red" }} ref={confirmPasswordRef}></p>
+
+                        <button type="submit" onClick={register}>Register</button>
+                        <div className="container">
+                            <button type="button" className="cancelbtn">Cancel</button>
+                        </div>
+
+                    </div>
                 </form>
             </div>
         </React.Fragment>
