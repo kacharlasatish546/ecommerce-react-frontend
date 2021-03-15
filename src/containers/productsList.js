@@ -21,7 +21,9 @@ const ProductsList = (props) => {
         }
     }
 
-   
+    if (!sessionStorage.getItem("token")) {
+        props.history.push("/login");
+    }
 
     return (
     

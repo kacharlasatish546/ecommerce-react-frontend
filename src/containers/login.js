@@ -53,10 +53,11 @@ const Login = (props) => {
     const login = (event) => {
         event.preventDefault();
         props.loginUser(loginData);
-        console.log("IsUserLoggeedIn",props.isLoggedIn)
         props.history.push("/productsList");
     }
-   
+    if (sessionStorage.getItem("token")) {
+        props.history.push("/productsList");
+    }
     return (
         <React.Fragment>
             <div>
@@ -64,11 +65,11 @@ const Login = (props) => {
                     <div className="container">
                         <label htmlFor="emailId"><b>Email</b></label>
                         <input type="text" placeholder="Email Id..." name="emailId" required onMouseOut={handleInputChange} onChange={handleInputChange} />
-                        <p style={{color:"red"}} ref={emailRef}></p>
+                        <p style={{ color: "red" }} ref={emailRef}></p>
 
                         <label htmlFor="password"><b>Password</b></label>
                         <input type="password" placeholder="Password..." name="password" required onMouseOut={handleInputChange} onChange={handleInputChange} />
-                        <p style={{color:"red"}} ref={passwordRef}></p>
+                        <p style={{ color: "red" }} ref={passwordRef}></p>
 
                         <button type="submit" onClick={login}>Login</button>
                     </div>
@@ -92,8 +93,6 @@ function mapDispatchToProps(dispatch) {
 }
 
 function mapStateToProps(applicationState) {
-    console.log('applicationState', applicationState);
-
     return { isLoggedIn: applicationState.isUserLoggedIn };
 }
 

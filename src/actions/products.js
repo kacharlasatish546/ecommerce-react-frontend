@@ -23,7 +23,7 @@ export function getSpecificProduct(pid) {
 
 export function addProduct(products){
 console.log("Add Product Action", products)
- var promise=axios.post(`${BASE_URL}addProduct/`);
+ var promise=axios.post(`${BASE_URL}addProduct/`,products);
 return{
     type:"ADD_PRODUCT",
     payload:promise

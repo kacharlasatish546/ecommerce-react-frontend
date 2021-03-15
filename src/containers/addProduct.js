@@ -64,10 +64,9 @@ const AddProduct = (props) => {
     const reset = (event) => {
         setAddProduct(initialValues)
     }
-
-if(!sessionStorage.getItem("token")){
-props.history.push("/login");
-}
+    if (!sessionStorage.getItem("token")) {
+        props.history.push("/login");
+    }
     return (
         <React.Fragment>
             <div className="span6">

@@ -15,7 +15,7 @@ const Register = (props) => {
         emailId: '',
         password: '',
         confirmPassword: '',
-        role: 'ROLE_CUSTOMER'
+        role: 'ROLE_ADMIN'
     }
 
     const [registerUser, setRegisterUser] = useState(initialState)
@@ -66,12 +66,13 @@ const Register = (props) => {
 
     const register = (event) => {
         event.preventDefault();
-        console.log("Register User", registerUser)
-        console.log("Register User Props", props)
         props.regNewUser(registerUser);
         props.history.push("/productsList");
     }
 
+    if (sessionStorage.getItem("token")) {
+        props.history.push("/productsList");
+    }
     return (
         <React.Fragment>
             <div>
@@ -106,9 +107,6 @@ const Register = (props) => {
 }
 
 function mapStateToProps(applicationState) {
-
-    console.log('applicationState', applicationState);
-
     return { isLoggedIn: applicationState.isUserLoggedIn };
 
 }

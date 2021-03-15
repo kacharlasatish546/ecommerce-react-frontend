@@ -15,7 +15,7 @@ const ProductListItem = (props) => {
                     <div className="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4 mt-4">
                         <div className="card shadow">
                             <div className="card-body text-center">
-                                <h3 className="text-warning">SALE 50% OFF</h3>
+                                <h3 className="text-warning">SALE {props.product.offers}/- OFF</h3>
                                 <img onClick={getProduct} className="card-img-top" src={props.product.product_image} alt="" />
                                 <div className="text-warning">
                                     <i className="fas fa-star"></i>
