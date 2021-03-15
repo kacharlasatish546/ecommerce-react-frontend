@@ -1,4 +1,5 @@
 import axios from 'axios';
+import AddProduct from '../containers/addProduct';
 
 const BASE_URL = "http://localhost:10899/admin/"
 
@@ -18,4 +19,13 @@ export function getSpecificProduct(pid) {
         type: 'CURRENT_PRODUCT',
         payload: promise
     }
+}
+
+export function addProduct(products){
+console.log("Add Product Action", products)
+ var promise=axios.post(`${BASE_URL}addProduct/`);
+return{
+    type:"ADD_PRODUCT",
+    payload:promise
+}
 }

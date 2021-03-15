@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { HashRouter, NavLink, Route } from 'react-router-dom';
+import AddProduct from '../containers/addProduct';
 import { Home } from '../containers/home';
 import Login from '../containers/login';
 import Product from '../containers/Product';
@@ -41,6 +42,7 @@ const Router = () => {
                                                     <li><NavLink to="/productsList">Products</NavLink></li>
                                                     <li><NavLink to="/register">Contact Us</NavLink></li>
                                                     <li><NavLink to="/register">Careers</NavLink></li>
+                                                    <li><NavLink to="/addProduct">Add Product</NavLink></li>
                                                     <li><NavLink to="/login">Logout</NavLink></li>
                                                 </ul>
                                             </div>
@@ -56,6 +58,7 @@ const Router = () => {
                 <Route path="/register" component={Register}></Route>
                 <Route path="/product" component={Product}></Route>
                 <Route path="/productsList" component={ProductsList}></Route>
+                <Route path="/addProduct" component={AddProduct}></Route>
             </HashRouter>
         </React.Fragment>
     )

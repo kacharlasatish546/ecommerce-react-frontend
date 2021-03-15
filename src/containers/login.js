@@ -53,8 +53,10 @@ const Login = (props) => {
     const login = (event) => {
         event.preventDefault();
         props.loginUser(loginData);
+        console.log("IsUserLoggeedIn",props.isLoggedIn)
         props.history.push("/productsList");
     }
+   
     return (
         <React.Fragment>
             <div>
